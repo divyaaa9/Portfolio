@@ -23,7 +23,7 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: (i % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex items-start justify-between gap-4 rounded-md border border-border bg-surface-card p-6 transition-colors duration-300 ease-premium hover:border-ink/25 hover:bg-surface-hover"
+              className="group flex items-start justify-between gap-4 rounded-md border border-border bg-surface-card p-5 transition-colors duration-300 ease-premium hover:border-ink/25 hover:bg-surface-hover"
             >
               <div>
                 <h3 className="font-display text-[15px] font-medium leading-snug text-ink">

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useRef, useState, useLayoutEffect } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -9,20 +9,31 @@ import { SectionHeading } from "@/components/section-heading";
 import { projects } from "@/lib/data";
 
 export function Projects() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [dragRange, setDragRange] = useState(0);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const isPointerDown = useRef(false);
+  const startX = useRef(0);
+  const startScrollLeft = useRef(0);
+  // Shared with every card so a click right after a drag doesn't fire navigation.
+  const dragDistance = useRef(0);
 
-  useLayoutEffect(() => {
-    function measure() {
-      if (!trackRef.current || !containerRef.current) return;
-      const overflow = trackRef.current.scrollWidth - containerRef.current.clientWidth;
-      setDragRange(Math.max(overflow, 0));
-    }
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
+  function onPointerDown(e: React.PointerEvent) {
+    if (!scrollerRef.current) return;
+    isPointerDown.current = true;
+    startX.current = e.clientX;
+    startScrollLeft.current = scrollerRef.current.scrollLeft;
+    dragDistance.current = 0;
+  }
+
+  function onPointerMove(e: React.PointerEvent) {
+    if (!isPointerDown.current || !scrollerRef.current) return;
+    const dx = e.clientX - startX.current;
+    dragDistance.current = Math.abs(dx);
+    scrollerRef.current.scrollLeft = startScrollLeft.current - dx;
+  }
+
+  function onPointerUp() {
+    isPointerDown.current = false;
+  }
 
   return (
     <section id="projects" className="section-y overflow-hidden">
@@ -30,24 +41,23 @@ export function Projects() {
         <SectionHeading
           eyebrow="Projects"
           title="Selected work"
-          description="Drag sideways to browse. Click any card to open the live project."
+          description="Drag or scroll sideways to browse. Click any card to open the live project."
         />
       </div>
 
-      <div ref={containerRef} className="container cursor-grab active:cursor-grabbing">
-        <motion.div
-          ref={trackRef}
-          drag="x"
-          dragConstraints={{ left: -dragRange, right: 0 }}
-          dragElastic={0.06}
-          className="flex gap-6"
-        >
-          {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
-          ))}
-          {/* trailing spacer so the last card can clear the viewport edge */}
-          <div className="w-px shrink-0" aria-hidden="true" />
-        </motion.div>
+      <div
+        ref={scrollerRef}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
+        className="no-scrollbar container flex cursor-grab gap-6 overflow-x-auto select-none active:cursor-grabbing"
+      >
+        {projects.map((project, i) => (
+          <ProjectCard key={project.id} project={project} index={i} dragDistanceRef={dragDistance} />
+        ))}
+        {/* trailing spacer so the last card can clear the viewport edge */}
+        <div className="w-px shrink-0" aria-hidden="true" />
       </div>
     </section>
   );
@@ -56,25 +66,18 @@ export function Projects() {
 function ProjectCard({
   project,
   index,
+  dragDistanceRef,
 }: {
   project: (typeof projects)[number];
   index: number;
+  dragDistanceRef: React.MutableRefObject<number>;
 }) {
   const hasLive = Boolean(project.liveUrl);
   const liveUrl = project.liveUrl;
 
-  // The card itself opens the live project; only the pointer-up (not a drag)
-  // triggers navigation, so dragging the carousel never fires a false click.
-  const pointerDownX = useRef(0);
-
-  function handlePointerDown(e: React.PointerEvent) {
-    pointerDownX.current = e.clientX;
-  }
-
-  function handleClick(e: React.MouseEvent) {
+  function handleClick() {
     if (!liveUrl) return;
-    const moved = Math.abs(e.clientX - pointerDownX.current);
-    if (moved > 6) return; // treat as a drag, not a click
+    if (dragDistanceRef.current > 6) return; // treat as a drag, not a click
     window.open(liveUrl, "_blank", "noreferrer");
   }
 
@@ -87,7 +90,6 @@ function ProjectCard({
       role={hasLive ? "link" : undefined}
       tabIndex={hasLive ? 0 : undefined}
       aria-label={hasLive ? `Open ${project.name} live project` : undefined}
-      onPointerDown={hasLive ? handlePointerDown : undefined}
       onClick={hasLive ? handleClick : undefined}
       onKeyDown={
         hasLive
@@ -98,7 +100,7 @@ function ProjectCard({
             }
           : undefined
       }
-      className={`group w-[82vw] shrink-0 select-none rounded-md border border-border bg-surface-card transition-colors duration-300 ease-premium hover:border-ink/25 hover:bg-surface-hover sm:w-[420px] ${
+      className={`group w-[79vw] shrink-0 select-none rounded-md border border-border bg-surface-card transition-colors duration-300 ease-premium hover:border-ink/25 hover:bg-surface-hover sm:w-[400px] ${
         hasLive ? "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40" : ""
       }`}
     >
@@ -108,7 +110,7 @@ function ProjectCard({
           alt={`${project.name} screenshot`}
           fill
           draggable={false}
-          sizes="(min-width: 640px) 420px, 82vw"
+          sizes="(min-width: 640px) 400px, 79vw"
           className="object-cover transition-transform duration-700 ease-premium group-hover:scale-[1.03]"
         />
       </div>

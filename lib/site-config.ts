@@ -3,18 +3,17 @@ export const siteConfig = {
   role: "Computer Science & Systems Engineering Student",
   tagline:
     "Third-year CS & Systems Engineering undergraduate who builds practical software, AI-powered applications, and full-stack projects from scratch.",
-  email: "hello@divyasree.dev",
-  phone: "+91 90000 00000",
-  location: "Vijayawada, Andhra Pradesh, India",
+  email: "divya.nirvana04@gmail.com",
+  location: "Vizianagaram, Andhra Pradesh",
   resumeUrl: "/resume.pdf",
   heroImage: "/images/profile/hero.jpeg",
   aboutImage: "/images/profile/about.jpeg",
   social: {
-    github: "https://github.com/divyasree",
-    linkedin: "https://www.linkedin.com/in/divyasree",
-    leetcode: "https://leetcode.com/divyasree",
-    gfg: "https://www.geeksforgeeks.org/user/divyasree",
-    linkedinCertifications: "https://www.linkedin.com/in/divyasree/details/certifications/",
+    github: "https://github.com/divyaaa9",
+    linkedin: "https://www.linkedin.com/in/divya-sree23/",
+    leetcode: "https://leetcode.com/u/TWipt8N93b/",
+    gfg: "https://www.geeksforgeeks.org/profile/divyanirxusa",
+    linkedinCertifications: "https://www.linkedin.com/in/divya-sree23/details/certifications/",
   },
 } as const;
 

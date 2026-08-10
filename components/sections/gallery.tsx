@@ -9,11 +9,7 @@ export function Gallery() {
   return (
     <section id="gallery" className="section-y overflow-hidden bg-base-alt">
       <div className="container">
-        <SectionHeading
-          eyebrow="Gallery"
-          title="Moments, in motion"
-          description="A continuous reel — no need to touch a thing."
-        />
+        <SectionHeading eyebrow="Gallery" title="Moments, in motion" />
       </div>
 
       <div

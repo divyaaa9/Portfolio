@@ -25,16 +25,16 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center pt-24 md:pt-16"
+      className="relative flex min-h-[100svh] items-center pt-20 md:pt-14"
     >
-      <div className="container grid grid-cols-1 items-center gap-14 md:grid-cols-[0.85fr_1.15fr] md:gap-10 lg:gap-16">
+      <div className="container grid grid-cols-1 items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-10 lg:gap-14">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="order-2 md:order-1"
         >
-          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-full border border-border bg-surface-card md:mx-0 md:max-w-md">
+          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-full border border-border bg-surface-card md:mx-0 md:max-w-sm">
             <Image
               src={siteConfig.heroImage}
               alt={`Portrait of ${siteConfig.name}`}
@@ -63,19 +63,19 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="mt-5 font-display text-display-xl font-medium text-ink"
+            className="mt-4 font-display text-display-xl font-medium text-ink"
           >
             {siteConfig.name}
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-6 max-w-lg text-lg leading-relaxed text-ink-secondary"
+            className="mt-4 max-w-lg text-lg leading-relaxed text-ink-secondary"
           >
             {siteConfig.tagline}
           </motion.p>
 
-          <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
+          <motion.div variants={item} className="mt-7 flex flex-wrap items-center gap-4">
             <Button size="lg" onClick={() => scrollToId("projects")}>
               View Projects
             </Button>

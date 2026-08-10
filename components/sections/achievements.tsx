@@ -15,7 +15,7 @@ export function Achievements() {
             className="absolute left-[5px] top-2 bottom-2 w-px bg-border"
             aria-hidden="true"
           />
-          <ol className="space-y-12">
+          <ol className="space-y-7">
             {achievements.map((item, i) => {
               const eyebrow = item.date ?? item.organization;
               return (
@@ -34,13 +34,13 @@ export function Achievements() {
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
                     {eyebrow}
                   </p>
-                  <h3 className="mt-2 font-display text-lg font-medium text-ink">
+                  <h3 className="mt-1.5 font-display text-base font-medium text-ink">
                     {item.title}
                   </h3>
                   {item.date ? (
                     <p className="mt-1 text-sm text-ink-secondary">{item.organization}</p>
                   ) : null}
-                  <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink-muted">
+                  <p className="mt-2 max-w-lg text-sm leading-relaxed text-ink-muted">
                     {item.description}
                   </p>
                 </motion.li>

@@ -52,12 +52,12 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "frontend",
     title: "Frontend",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript"],
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React"],
   },
   {
     id: "backend",
     title: "Backend",
-    skills: ["Python", "PHP", "APIs"],
+    skills: ["Python", "APIs"],
   },
   {
     id: "database",
@@ -112,14 +112,13 @@ export const projects: Project[] = [
     // No live deployment or GitHub repo provided yet.
   },
   {
-    id: "vocalforlocal",
-    name: "VocalForLocal",
+    id: "kraftkala",
+    name: "KraftKala",
     description:
-      "A digital commerce platform created to promote local products and support the idea of connecting local sellers with customers through an online marketplace.",
-    stack: ["PHP"],
-    image: "/images/projects/vocalforlocal.png",
-    githubUrl: "https://github.com/divyaaa9/vocalforlocal",
-    // No live deployment provided.
+      "A full-stack digital marketplace designed to connect Indian artisans and handmade product sellers with customers, providing a platform to showcase and discover authentic handcrafted products.",
+    stack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+    image: "/images/projects/kraftkala.png",
+    // No live deployment or GitHub repo provided yet.
   },
   {
     id: "iscandid",
@@ -186,12 +185,12 @@ export type Certification = {
 };
 
 export const certifications: Certification[] = [
-  { id: "aws-cca", name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services" },
-  { id: "meta-frontend", name: "Meta Front-End Developer", issuer: "Meta" },
-  { id: "google-ux", name: "Google UX Design Certificate", issuer: "Google" },
-  { id: "dsa-gfg", name: "Data Structures & Algorithms", issuer: "GeeksforGeeks" },
-  { id: "sql-hackerrank", name: "SQL (Advanced)", issuer: "HackerRank" },
-  { id: "system-design", name: "System Design Fundamentals", issuer: "Educative" },
+  { id: "genai-internship", name: "GEN-AI Virtual Internship", issuer: "AICTE · AWS Academy" },
+  { id: "cybersecurity-internship", name: "Cybersecurity Virtual Internship", issuer: "AICTE · Palo Alto Networks" },
+  { id: "webfullstack-internship", name: "Web Full Stack Developer Virtual Internship", issuer: "EduSkills Academy" },
+  { id: "privacy-social-media", name: "Privacy and Security in Online Social Media", issuer: "NPTEL · IIT Madras (Elite)" },
+  { id: "cloud-internship", name: "Cloud Virtual Internship", issuer: "AICTE · AWS Academy" },
+  { id: "dotnet-fullstack", name: "Full Stack .NET Development with Project", issuer: "EduSkills Academy" },
 ];
 
 export const galleryImages = Array.from({ length: 15 }, (_, i) => {

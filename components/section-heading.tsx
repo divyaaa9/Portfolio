@@ -25,7 +25,7 @@ export function SectionHeading({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "mb-14 md:mb-18",
+        "mb-8 md:mb-10",
         align === "center" && "text-center mx-auto max-w-2xl",
         className
       )}
@@ -34,9 +34,9 @@ export function SectionHeading({
         <span className="h-px w-6 bg-ink-muted/60" aria-hidden="true" />
         {eyebrow}
       </span>
-      <h2 className="mt-4 font-display text-display-md font-medium text-ink">{title}</h2>
+      <h2 className="mt-3 font-display text-display-md font-medium text-ink">{title}</h2>
       {description ? (
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-secondary">
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-secondary">
           {description}
         </p>
       ) : null}

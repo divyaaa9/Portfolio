@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import {
   Mail,
-  Phone,
   MapPin,
   Github,
   Linkedin,
@@ -16,7 +15,6 @@ import { siteConfig } from "@/lib/site-config";
 
 const contactRows = [
   { label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}`, icon: Mail },
-  { label: "Phone", value: siteConfig.phone, href: `tel:${siteConfig.phone.replace(/\s/g, "")}`, icon: Phone },
   { label: "Location", value: siteConfig.location, href: undefined, icon: MapPin },
 ];
 
@@ -43,15 +41,15 @@ export function Contact() {
             <span className="h-px w-6 bg-ink-muted/60" aria-hidden="true" />
             Contact
           </span>
-          <h2 className="mt-4 font-display text-display-md font-medium text-ink">
+          <h2 className="mt-3 font-display text-display-md font-medium text-ink">
             Let&rsquo;s Connect
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-secondary">
+          <p className="mt-3 text-base leading-relaxed text-ink-secondary">
             Whether it&rsquo;s a project, an opportunity, or a conversation, my inbox is
             always open.
           </p>
 
-          <div className="mt-10">
+          <div className="mt-7">
             <Button size="lg" onClick={() => window.location.assign(`mailto:${siteConfig.email}`)}>
               <Mail className="h-4 w-4" aria-hidden="true" />
               Get In Touch
@@ -64,7 +62,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3"
+          className="mx-auto mt-10 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-2"
         >
           {contactRows.map((row) => {
             const Icon = row.icon;
@@ -78,7 +76,7 @@ export function Contact() {
               </>
             );
             const rowClass =
-              "flex flex-col items-center gap-2 rounded-md border border-border bg-surface-card p-6 text-center transition-colors duration-300 ease-premium hover:border-ink/20 hover:bg-surface-hover";
+              "flex flex-col items-center gap-2 rounded-md border border-border bg-surface-card p-5 text-center transition-colors duration-300 ease-premium hover:border-ink/20 hover:bg-surface-hover";
 
             return row.href ? (
               <a key={row.label} href={row.href} className={rowClass}>

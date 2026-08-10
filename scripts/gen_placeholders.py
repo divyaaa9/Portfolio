@@ -114,7 +114,7 @@ def gen_projects():
         ("quizem", "QuizEm"),
         ("educore", "EduCore"),
         ("pong", "Pong Game"),
-        ("vocalforlocal", "VocalForLocal"),
+        ("kraftkala", "KraftKala"),
         ("iscandid", "isCandid"),
     ]
     w, h = 1600, 1000
