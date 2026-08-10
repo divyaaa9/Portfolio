@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-base text-ink antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: rgba(245, 245, 242, 0.16);
+    color: #f5f5f2;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(245, 245, 242, 0.5);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0d10;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2f36;
+    border-radius: 999px;
+    border: 2px solid #0b0d10;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a4048;
+  }
+}
+
+@layer components {
+  .section-y {
+    padding-top: theme("spacing.section-y");
+    padding-bottom: theme("spacing.section-y");
+  }
+
+  .bg-base-alt {
+    background-color: theme("colors.base.alt");
+    background-image: radial-gradient(
+      ellipse 70% 55% at 50% 0%,
+      rgba(245, 245, 242, 0.045),
+      rgba(245, 245, 242, 0) 72%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* The gallery reel is core content, not decoration — keep it moving,
+     just far slower, so motion-sensitive users aren't shown a static jump-cut. */
+  .animate-marquee {
+    animation-duration: 240s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
