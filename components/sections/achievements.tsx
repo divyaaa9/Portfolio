@@ -15,7 +15,7 @@ export function Achievements() {
             className="absolute left-[5px] top-2 bottom-2 w-px bg-border"
             aria-hidden="true"
           />
-          <ol className="space-y-7">
+          <ol className="space-y-5">
             {achievements.map((item, i) => {
               const eyebrow = item.date ?? item.organization;
               return (

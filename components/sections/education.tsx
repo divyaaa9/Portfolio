@@ -10,7 +10,7 @@ export function Education() {
     <section id="education" className="section-y bg-base-alt">
       <div className="container">
         <SectionHeading eyebrow="Education" title="Academic background" />
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {education.map((item, i) => (
             <motion.div
               key={item.id}
@@ -18,7 +18,7 @@ export function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group rounded-md border border-border bg-surface-card p-5 transition-colors duration-300 ease-premium hover:bg-surface-hover hover:border-ink/20"
+              className="group rounded-md border border-border bg-surface-card p-4 transition-all duration-300 ease-premium hover:bg-surface-hover hover:border-ink/20 hover:shadow-[0_0_40px_-16px_rgba(245,245,242,0.35)]"
             >
               <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm border border-border bg-base">
                 <Image

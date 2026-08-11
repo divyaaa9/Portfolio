@@ -67,7 +67,7 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "tools",
     title: "Tools & Development",
-    skills: ["Git", "GitHub", "VS Code"],
+    skills: ["Git", "GitHub", "VS Code", "Supabase", "Clerk"],
   },
 ];
 
@@ -127,7 +127,7 @@ export const projects: Project[] = [
       "A browser-based website genuineness analysis tool designed to help identify potentially fake or suspicious shopping websites.",
     stack: ["Python", "HTML", "JavaScript", "CSS"],
     image: "/images/projects/iscandid.png",
-    githubUrl: "https://github.com/divyaaa9/isCandid-Browser-Based-Website-Genuineness-Analysis-Software",
+    githubUrl: "https://github.com/divyaaa9/isCandid-Browser-Based-Website-Genuineness-Analysis-Software-",
     // No live deployment provided.
   },
 ];

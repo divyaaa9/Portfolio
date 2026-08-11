@@ -13,27 +13,27 @@ function Hl({ children }: { children: ReactNode }) {
 
 const paragraphs: ReactNode[] = [
   <>
-    I&rsquo;m a third-year Computer Science and Systems Engineering undergraduate at
-    Lendi Institute of Engineering and Technology, maintaining an{" "}
-    <Hl>8.7 CGPA</Hl>. I&rsquo;m a passionate learner who enjoys building things from
-    scratch and turning ideas into practical, working solutions.
+    I&rsquo;m a <Hl>third-year Computer Science and Systems Engineering</Hl> undergraduate
+    at Lendi Institute of Engineering and Technology (LIET), with an <Hl>8.7 GPA</Hl>. I
+    enjoy learning by building and turning ideas into practical software, with interests
+    in <Hl>full-stack development</Hl>, <Hl>backend systems</Hl>, and{" "}
+    <Hl>AI-powered applications</Hl>.
   </>,
   <>
-    That shows up in what I build. <Hl>QuizEm</Hl> is an <Hl>AI-powered</Hl> quiz
-    generator built with <Hl>TypeScript</Hl> and <Hl>PostgreSQL</Hl>. <Hl>EduCore</Hl>{" "}
-    organizes academic data through a <Hl>Python</Hl>-and-PostgreSQL backend wired
-    together with REST <Hl>APIs</Hl>. <Hl>isCandid</Hl> is a browser extension, built
-    in Python and JavaScript, that flags fake shopping websites. I&rsquo;ve also
-    shipped <Hl>KraftKala</Hl>, a <Hl>PHP</Hl> marketplace connecting local artisans
-    with customers — after starting out with a Pong game built from scratch in
-    vanilla JavaScript.
+    I work with <Hl>C</Hl>, <Hl>Python</Hl>, <Hl>HTML</Hl>, <Hl>CSS</Hl>,{" "}
+    <Hl>JavaScript</Hl>, and <Hl>PostgreSQL</Hl>, building{" "}
+    <Hl>full-stack applications</Hl>, <Hl>REST APIs</Hl>,{" "}
+    <Hl>database-driven systems</Hl>, and <Hl>AI-assisted solutions</Hl>. I enjoy
+    working across the stack, from application logic and structured data to{" "}
+    <Hl>API integration</Hl> and intelligent features that make software more useful.
   </>,
   <>
-    I enjoy exploring new technologies, solving problems, and continuously improving
-    the way I build. Alongside technical skills, I value clear <Hl>communication</Hl>,{" "}
-    <Hl>teamwork</Hl>, and taking responsibility in <Hl>leadership roles</Hl>. I&rsquo;m
-    hardworking, enthusiastic, and enjoy contributing both as an individual and as
-    part of a team.
+    Beyond development, I value <Hl>communication</Hl>, <Hl>teamwork</Hl>, and{" "}
+    <Hl>leadership</Hl>. As the <Hl>President of the National Entrepreneurship Cell (E-Cell), IIT Bombay</Hl> at
+    LIET, I lead initiatives that encourage entrepreneurship and student participation.
+    My experiences in <Hl>chess</Hl>, <Hl>editorial work</Hl>, and college activities
+    have strengthened my ability to collaborate, take responsibility, and adapt to new
+    challenges.
   </>,
 ];
 

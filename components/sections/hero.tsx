@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
 
@@ -34,16 +35,22 @@ export function Hero() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="order-2 md:order-1"
         >
-          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-full border border-border bg-surface-card md:mx-0 md:max-w-sm">
-            <Image
-              src={siteConfig.heroImage}
-              alt={`Portrait of ${siteConfig.name}`}
-              fill
-              priority
-              sizes="(min-width: 768px) 40vw, 90vw"
-              className="object-cover grayscale-[15%]"
+          <div className="relative mx-auto aspect-square w-full max-w-sm md:mx-0 md:max-w-sm">
+            <div
+              className="absolute -inset-6 -z-10 rounded-full bg-[radial-gradient(circle,rgba(245,245,242,0.14),rgba(245,245,242,0)_70%)] blur-xl"
+              aria-hidden="true"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/30 via-transparent to-transparent" />
+            <div className="relative h-full w-full overflow-hidden rounded-full border border-border bg-surface-card">
+              <Image
+                src={siteConfig.heroImage}
+                alt={`Portrait of ${siteConfig.name}`}
+                fill
+                priority
+                sizes="(min-width: 768px) 40vw, 90vw"
+                className="object-cover grayscale-[15%]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/30 via-transparent to-transparent" />
+            </div>
           </div>
         </motion.div>
 
@@ -86,6 +93,19 @@ export function Hero() {
             >
               Contact
             </Button>
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mt-7 inline-flex items-start gap-3 rounded-md border border-border bg-surface-card/60 px-4 py-3 backdrop-blur-sm"
+          >
+            <Award className="mt-0.5 h-4 w-4 shrink-0 text-ink-muted" aria-hidden="true" />
+            <div>
+              <p className="text-sm font-medium text-ink">President, E-Cell · LIET</p>
+              <p className="mt-0.5 text-xs text-ink-muted">
+                National Entrepreneurship Challenge · E-Cell IIT Bombay · LIET &rsquo;28
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       </div>

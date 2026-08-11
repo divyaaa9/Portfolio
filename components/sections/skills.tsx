@@ -8,13 +8,9 @@ export function Skills() {
   return (
     <section id="skills" className="section-y">
       <div className="container">
-        <SectionHeading
-          eyebrow="Skills"
-          title="What I work with"
-          description="Grouped by the layer of the stack each tool belongs to — from interface to infrastructure."
-        />
+        <SectionHeading eyebrow="Skills" title="What I work with" />
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category, i) => (
             <motion.div
               key={category.id}
@@ -22,7 +18,7 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-md border border-border bg-surface-card p-5 transition-colors duration-300 ease-premium hover:bg-surface-hover hover:border-ink/20"
+              className="rounded-md border border-border bg-surface-card p-4 transition-all duration-300 ease-premium hover:bg-surface-hover hover:border-ink/20 hover:shadow-[0_0_40px_-16px_rgba(245,245,242,0.35)]"
             >
               <div className="flex items-center gap-3">
                 <span className="text-xs font-medium tabular-nums text-ink-muted">
@@ -33,7 +29,7 @@ export function Skills() {
                 </h3>
               </div>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}

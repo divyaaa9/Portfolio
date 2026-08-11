@@ -20,13 +20,13 @@ export function Gallery() {
           {track.map((image, i) => (
             <div
               key={`${image.id}-${i}`}
-              className="relative mx-3 h-[260px] w-[360px] shrink-0 overflow-hidden rounded-md border border-border bg-surface-card md:h-[320px] md:w-[440px]"
+              className="relative mx-3 h-[252px] w-[349px] shrink-0 overflow-hidden rounded-md border border-border bg-surface-card md:h-[310px] md:w-[427px]"
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                sizes="440px"
+                sizes="427px"
                 loading="eager"
                 className="object-cover"
               />

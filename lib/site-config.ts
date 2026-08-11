@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Divya Sree",
-  role: "Computer Science & Systems Engineering Student",
+  role: "Computer Science Undergraduate · Developer · Full-Stack & AI",
   tagline:
-    "Third-year CS & Systems Engineering undergraduate who builds practical software, AI-powered applications, and full-stack projects from scratch.",
+    "I like turning ideas into things people can actually use — from full-stack web applications and backend APIs to AI-assisted and data-driven projects. I'm curious about how software works under the hood and enjoy learning by building, experimenting, and solving problems along the way.",
   email: "divya.nirvana04@gmail.com",
   location: "Vizianagaram, Andhra Pradesh",
   resumeUrl: "/resume.pdf",

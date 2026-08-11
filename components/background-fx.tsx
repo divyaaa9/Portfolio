@@ -13,6 +13,9 @@ export function BackgroundFX() {
       {/* secondary off-center glow, mid-page, for a sense of movement/depth */}
       <div className="absolute left-1/2 top-[55vh] h-[70vh] w-[140vw] -translate-x-1/2 bg-[radial-gradient(ellipse_45%_40%_at_30%_50%,rgba(245,245,242,0.05),rgba(245,245,242,0)_70%)]" />
 
+      {/* tertiary glow, lower on the page, opposite side for balance */}
+      <div className="absolute left-1/2 top-[130vh] h-[75vh] w-[150vw] -translate-x-1/2 bg-[radial-gradient(ellipse_40%_35%_at_72%_50%,rgba(245,245,242,0.045),rgba(245,245,242,0)_72%)]" />
+
       {/* faint diagonal sheen across the whole canvas for tonal variation */}
       <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(245,245,242,0.045)_0%,rgba(245,245,242,0)_28%,rgba(245,245,242,0)_72%,rgba(245,245,242,0.03)_100%)]" />
 

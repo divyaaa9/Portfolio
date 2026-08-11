@@ -50,13 +50,13 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       fontSize: {
-        "display-xl": ["clamp(2.5rem, 1.9rem + 2.6vw, 4.5rem)", { lineHeight: "1.03", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(2rem, 1.55rem + 1.9vw, 3.25rem)", { lineHeight: "1.06", letterSpacing: "-0.025em" }],
-        "display-md": ["clamp(1.5rem, 1.25rem + 1.1vw, 2.25rem)", { lineHeight: "1.12", letterSpacing: "-0.02em" }],
-        "display-sm": ["clamp(1.25rem, 1.1rem + 0.55vw, 1.5rem)", { lineHeight: "1.22", letterSpacing: "-0.015em" }],
+        "display-xl": ["clamp(2.25rem, 1.75rem + 2.2vw, 3.75rem)", { lineHeight: "1.04", letterSpacing: "-0.03em" }],
+        "display-lg": ["clamp(1.85rem, 1.5rem + 1.5vw, 2.75rem)", { lineHeight: "1.08", letterSpacing: "-0.025em" }],
+        "display-md": ["clamp(1.35rem, 1.15rem + 0.9vw, 1.85rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
+        "display-sm": ["clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem)", { lineHeight: "1.25", letterSpacing: "-0.015em" }],
       },
       spacing: {
-        "section-y": "clamp(2.75rem, 2.25rem + 2.2vw, 4.75rem)",
+        "section-y": "clamp(2rem, 1.6rem + 1.6vw, 3.5rem)",
         "18": "4.5rem",
         "22": "5.5rem",
       },
