@@ -20,7 +20,7 @@ export function Education() {
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="group rounded-md border border-border bg-surface-card p-4 transition-all duration-300 ease-premium hover:bg-surface-hover hover:border-ink/20 hover:shadow-[0_0_40px_-16px_rgba(245,245,242,0.35)]"
             >
-              <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm border border-border bg-base">
+              <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-sm border border-border/60 bg-base">
                 <Image
                   src={item.logo}
                   alt={`${item.institution} logo`}

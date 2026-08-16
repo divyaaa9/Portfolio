@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono, Unbounded } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -25,6 +25,15 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+// Reserved for the hero name only — a bolder, more geometric accent
+// that stands apart from the Space Grotesk used everywhere else.
+const unbounded = Unbounded({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-accent",
   display: "swap",
 });
 
@@ -55,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-pt-16">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${unbounded.variable} font-sans`}
       >
         <BackgroundFX />
         <Navbar />

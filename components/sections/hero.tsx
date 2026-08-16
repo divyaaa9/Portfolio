@@ -64,13 +64,27 @@ export function Hero() {
             variants={item}
             className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted"
           >
-            <span className="h-px w-6 bg-ink-muted/60" aria-hidden="true" />
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="shrink-0 text-ink/90 [filter:drop-shadow(0_0_5px_rgba(245,245,242,0.65))_drop-shadow(0_0_12px_rgba(245,245,242,0.3))]"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2V22M3.5 7L20.5 17M20.5 7L3.5 17"
+                stroke="currentColor"
+                strokeWidth="1.1"
+                strokeLinecap="round"
+              />
+            </svg>
             {siteConfig.role}
           </motion.span>
 
           <motion.h1
             variants={item}
-            className="mt-4 font-display text-display-xl font-medium text-ink"
+            className="mt-4 font-accent text-display-xl font-bold tracking-normal text-ink"
           >
             {siteConfig.name}
           </motion.h1>

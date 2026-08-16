@@ -109,7 +109,8 @@ export const projects: Project[] = [
       "An education-focused application designed to manage and organize academic information using a backend-driven architecture and structured data.",
     stack: ["Python", "PostgreSQL", "APIs"],
     image: "/images/projects/educore.png",
-    // No live deployment or GitHub repo provided yet.
+    githubUrl: "https://github.com/divyaaa9/EduCore",
+    // No live deployment provided yet.
   },
   {
     id: "kraftkala",
@@ -118,7 +119,8 @@ export const projects: Project[] = [
       "A full-stack digital marketplace designed to connect Indian artisans and handmade product sellers with customers, providing a platform to showcase and discover authentic handcrafted products.",
     stack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
     image: "/images/projects/kraftkala.png",
-    // No live deployment or GitHub repo provided yet.
+    githubUrl: "https://github.com/divyaaa9/vocalforlocal",
+    // No live deployment provided yet.
   },
   {
     id: "iscandid",
@@ -190,7 +192,7 @@ export const certifications: Certification[] = [
   { id: "webfullstack-internship", name: "Web Full Stack Developer Virtual Internship", issuer: "EduSkills Academy" },
   { id: "privacy-social-media", name: "Privacy and Security in Online Social Media", issuer: "NPTEL · IIT Madras (Elite)" },
   { id: "cloud-internship", name: "Cloud Virtual Internship", issuer: "AICTE · AWS Academy" },
-  { id: "dotnet-fullstack", name: "Full Stack .NET Development with Project", issuer: "EduSkills Academy" },
+  { id: "nsttp-java-fullstack", name: "National Level Short Term Training Program — Java Full Stack with React JS & AI", issuer: "Brainovision Solutions · AICTE" },
 ];
 
 export const galleryImages = Array.from({ length: 15 }, (_, i) => {

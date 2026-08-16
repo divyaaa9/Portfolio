@@ -37,9 +37,10 @@ export function Contact() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink-muted">
-            <span className="h-px w-6 bg-ink-muted/60" aria-hidden="true" />
-            Contact
+          <span className="inline-flex items-center justify-center gap-0.5 font-mono text-[13px] tracking-tight text-ink-muted">
+            <span className="text-ink-muted/50">&lt;</span>
+            <span className="text-ink-secondary">Contact</span>
+            <span className="text-ink-muted/50">&nbsp;/&gt;</span>
           </span>
           <h2 className="mt-3 font-display text-display-md font-medium text-ink">
             Let&rsquo;s Connect

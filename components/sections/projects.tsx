@@ -41,9 +41,28 @@ export function Projects() {
   function scrollByAmount(direction: "left" | "right") {
     const el = scrollerRef.current;
     if (!el) return;
-    const cardWidth = el.querySelector("[data-project-card]")?.clientWidth ?? 400;
+    const cardWidth = el.querySelector("[data-project-card]")?.clientWidth ?? 390;
     el.scrollBy({ left: direction === "left" ? -(cardWidth + 24) : cardWidth + 24, behavior: "smooth" });
   }
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    // Trackpads send a diagonal gesture as one wheel event with both deltaX
+    // and deltaY. If we let the browser handle it natively, the leftover
+    // vertical component leaks out and nudges the whole page — this keeps
+    // horizontal pans fully inside the carousel and leaves plain vertical
+    // scrolling untouched.
+    function onWheel(e: WheelEvent) {
+      if (!el || Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      el.scrollLeft += e.deltaX;
+    }
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
 
   function onPointerDown(e: React.PointerEvent) {
     if (!scrollerRef.current) return;
@@ -77,7 +96,7 @@ export function Projects() {
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerLeave={onPointerUp}
-          className="no-scrollbar container flex cursor-grab gap-6 overflow-x-auto select-none active:cursor-grabbing"
+          className="no-scrollbar container flex cursor-grab gap-6 overflow-x-auto overflow-y-hidden select-none active:cursor-grabbing [touch-action:pan-x]"
         >
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} dragDistanceRef={dragDistance} />
@@ -163,7 +182,7 @@ function ProjectCard({
             }
           : undefined
       }
-      className={`group w-[79vw] shrink-0 select-none rounded-md border border-border bg-surface-card transition-all duration-300 ease-premium hover:border-ink/25 hover:bg-surface-hover hover:shadow-[0_0_50px_-18px_rgba(245,245,242,0.4)] sm:w-[400px] ${
+      className={`group w-[77vw] shrink-0 select-none rounded-md border border-border bg-surface-card transition-all duration-300 ease-premium hover:border-ink/25 hover:bg-surface-hover hover:shadow-[0_0_50px_-18px_rgba(245,245,242,0.4)] sm:w-[390px] ${
         hasLive ? "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40" : ""
       }`}
     >
@@ -173,7 +192,7 @@ function ProjectCard({
           alt={`${project.name} screenshot`}
           fill
           draggable={false}
-          sizes="(min-width: 640px) 400px, 79vw"
+          sizes="(min-width: 640px) 390px, 77vw"
           className="object-cover transition-transform duration-700 ease-premium group-hover:scale-[1.03]"
         />
       </div>

@@ -160,7 +160,7 @@ def gen_education():
         img = Image.new("RGB", (size, size), (0, 0, 0, 0)).convert("RGB")
         img = Image.new("RGB", (size, size), CARD)
         d = ImageDraw.Draw(img)
-        d.ellipse([20, 20, size - 20, size - 20], outline=BORDER, width=6)
+        d.ellipse([20, 20, size - 20, size - 20], outline=BORDER, width=2)
         d.ellipse([48, 48, size - 48, size - 48], fill=BG_ALT)
         f = font(96, bold=True)
         bbox = d.textbbox((0, 0), initials, font=f)

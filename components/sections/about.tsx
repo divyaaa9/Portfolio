@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site-config";
+import { projects } from "@/lib/data";
 
 /** Inline emphasis for the words that matter — tech names, project names, key strengths. */
 function Hl({ children }: { children: ReactNode }) {
@@ -37,45 +38,67 @@ const paragraphs: ReactNode[] = [
   </>,
 ];
 
+const stats = [
+  "8.7 GPA",
+  "President, E-Cell",
+  `${projects.length} Projects`,
+  "3rd-Year CS & SE",
+];
+
 export function About() {
   return (
     <section id="about" className="section-y">
       <div className="container">
         <SectionHeading eyebrow="About" title="A little about how I work" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.7fr] md:gap-10 lg:gap-14">
+        <div className="flex flex-col items-start gap-6 sm:flex-row sm:gap-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="flex justify-center md:sticky md:top-28 md:h-full md:items-center md:justify-center md:self-start"
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="relative aspect-square w-24 shrink-0 self-start overflow-hidden rounded-full border border-border bg-surface-card md:w-28"
           >
-            <div className="relative aspect-square w-full max-w-[240px] overflow-hidden rounded-lg border border-border bg-surface-card">
-              <Image
-                src={siteConfig.aboutImage}
-                alt={`${siteConfig.name} at work`}
-                fill
-                sizes="(min-width: 768px) 240px, 60vw"
-                className="object-cover grayscale-[15%]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/20 via-transparent to-transparent" />
-            </div>
+            <Image
+              src={siteConfig.aboutImage}
+              alt={`${siteConfig.name} at work`}
+              fill
+              sizes="112px"
+              className="object-cover grayscale-[15%]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/20 via-transparent to-transparent" />
           </motion.div>
 
-          <div className="max-w-prose space-y-4">
+          <div className="min-w-0 flex-1">
             {paragraphs.map((node, i) => (
               <motion.p
                 key={i}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="text-base leading-relaxed text-ink-secondary md:text-[17px]"
+                transition={{ duration: 0.6, delay: 0.08 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="mb-4 text-base leading-relaxed text-ink-secondary md:text-[17px]"
               >
                 {node}
               </motion.p>
             ))}
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: 0.08 + paragraphs.length * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-wrap gap-2 pt-2"
+            >
+              {stats.map((stat) => (
+                <span
+                  key={stat}
+                  className="rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-ink-secondary"
+                >
+                  {stat}
+                </span>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
