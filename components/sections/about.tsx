@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site-config";
-import { projects } from "@/lib/data";
 
 /** Inline emphasis for the words that matter — tech names, project names, key strengths. */
 function Hl({ children }: { children: ReactNode }) {
@@ -38,12 +37,7 @@ const paragraphs: ReactNode[] = [
   </>,
 ];
 
-const stats = [
-  "8.7 GPA",
-  "President, E-Cell",
-  `${projects.length} Projects`,
-  "3rd-Year CS & SE",
-];
+const stats = ["8.7 GPA", "President, E-Cell", "3rd-Year CS & SE"];
 
 export function About() {
   return (
