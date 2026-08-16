@@ -1,24 +1,62 @@
-# Divya Sree — Developer Portfolio
+<div align="center">
 
-A premium, editorial-minimal developer portfolio built with Next.js 15 (App
-Router), TypeScript, Tailwind CSS, and Framer Motion.
+<img src="./public/readme-banner.svg" alt="Divya Sree — Portfolio" width="100%" />
 
-## Getting started
+<br />
 
-This project was built in a sandbox without network access, so dependencies
-were **not** installed and the build was **not** run. Before treating this as
-final, do the following:
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-black?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)](#license)
+
+*A premium, editorial-minimal developer portfolio — monochrome, motion-driven, and built to feel like one cohesive product rather than a stack of sections.*
+
+</div>
+
+<br />
+
+## `<Overview />`
+
+This is a personal portfolio built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Framer Motion** — no UI kit, no template. Every color, spacing value, and animation curve is a design token defined once and reused everywhere, styled after the restraint of products like Linear, Vercel, and Stripe rather than a typical "dev portfolio" aesthetic.
+
+**Live sections:** Home · About · Education · Skills · Projects · Achievements · Certifications · Gallery · Contact
+
+## `<Highlights />`
+
+- **Draggable + scrollable project carousel** — native `overflow-x` scroll (trackpad, touch, and click-drag all work), with subtle edge arrows that fade in/out based on scroll position, and a wheel listener that stops diagonal trackpad gestures from bleeding into vertical page scroll.
+- **Infinite gallery marquee** — a pure CSS keyframe loop, no JS scroll-jacking, that gracefully slows (rather than stops) under `prefers-reduced-motion`.
+- **Scroll-spy navigation** — `IntersectionObserver`-driven active section tracking with a `layoutId`-animated underline, not scroll-offset math.
+- **Ambient background system** — layered radial glows, a faint grid, and film-grain noise, all built from the same monochrome palette — no color, no gradients outside the grayscale.
+- **Fully data-driven content** — every section reads from two files (`lib/site-config.ts`, `lib/data.ts`); no copy is hardcoded inside components.
+
+## `<Tech Stack />`
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict mode) |
+| Styling | Tailwind CSS + custom design tokens |
+| Motion | Framer Motion |
+| Icons | lucide-react |
+| Fonts | Space Grotesk, Inter, JetBrains Mono, Unbounded (via `next/font/google`) |
+
+## `<Getting Started />`
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open http://localhost:3000. Fix anything that surfaces during install or
-`npm run typecheck` / `npm run lint` — the code was written carefully and
-syntax-checked, but it has not been compiled end-to-end.
+Then open **http://localhost:3000**.
 
-## Project structure
+```bash
+npm run build     # production build
+npm run typecheck # TypeScript check with no emit
+npm run lint      # ESLint
+```
+
+## `<Project Structure />`
 
 ```
 app/                   Root layout, home page, globals.css, SEO routes
@@ -28,7 +66,7 @@ components/
   navbar.tsx           Sticky nav with scroll-spy active indicator
   footer.tsx
   background-fx.tsx    Grid + noise + spotlight ambient background
-  section-heading.tsx  Shared eyebrow/title/description heading
+  section-heading.tsx  Shared <Tag /> eyebrow + title heading
 hooks/
   use-active-section.ts  IntersectionObserver-based scroll-spy
 lib/
@@ -36,38 +74,20 @@ lib/
   data.ts              Education, skills, projects, achievements, certs, gallery
   utils.ts             `cn()` classname helper
 public/
-  images/              Placeholder imagery (see below)
-  resume.pdf           Placeholder resume
-scripts/               One-off scripts used to generate the placeholders
+  images/              Portrait, gallery reel, project screenshots, badges
+  resume.pdf
+scripts/               One-off scripts used to generate placeholder assets
 ```
 
-## Replacing placeholder content
+## `<Editing Content />`
 
-Everything content-related lives in **`lib/site-config.ts`** and
-**`lib/data.ts`** — edit those two files rather than hunting through
-components.
+Everything content-related lives in **`lib/site-config.ts`** (identity, contact info, social links, nav) and **`lib/data.ts`** (education, skills, projects, achievements, certifications, gallery) — edit those two files rather than hunting through components.
 
-### Images to replace
+Gallery images are generated from a list in `lib/data.ts`, not hardcoded per file — add or remove images by editing that list and dropping files in `public/images/gallery/` named `01.jpg`, `02.jpg`, etc.
 
-All placeholders were generated locally (no stock photos used) and are
-intentionally rough — swap them for real assets at the same paths:
+## `<Design System />`
 
-- `public/images/profile/hero.jpg` — your portrait (recommended ~1000×1250, portrait orientation)
-- `public/images/gallery/01.jpg` … `15.jpg` — gallery reel (recommended ~1200×800)
-- `public/images/projects/*.png` — one screenshot per project, filenames match `lib/data.ts`
-- `public/images/education/*.png` — small square logos/badges, filenames match `lib/data.ts`
-- `public/resume.pdf` — your actual resume
-- `app/favicon.ico` — your favicon
-
-Add or remove gallery images by adding/removing files and updating the count
-in `galleryImages` (`lib/data.ts`) — the marquee is generated from that list,
-not hardcoded per file.
-
-## Design system
-
-Design tokens (colors, type scale, spacing, radii, easing) are defined once in
-`tailwind.config.ts` under `theme.extend`, sourced from the brief's
-monochrome palette:
+All tokens live in `tailwind.config.ts` under `theme.extend` — one source of truth for color, type scale, spacing, radii, and easing.
 
 | Token | Hex |
 |---|---|
@@ -80,23 +100,12 @@ monochrome palette:
 | Text muted | `#80858F` |
 | Hover surface | `#1D2229` |
 
-Typography: **Space Grotesk** (display/headings), **Inter** (body), **JetBrains
-Mono** (numerals/technical accents) — loaded via `next/font/google` in
-`app/layout.tsx`.
+**Type:** Space Grotesk (section headings), Unbounded (hero name only), Inter (body), JetBrains Mono (tags, numerals).
 
-## Notable implementation details
+## `<License />`
 
-- **Projects carousel** is a `framer-motion` drag surface, not `overflow-x` +
-  native scroll, so it feels intentional rather than like an unstyled
-  scrollbar. Click vs. drag is disambiguated by pointer-move distance so
-  dragging never triggers a false navigation.
-- **Gallery marquee** is a CSS keyframe animation (duplicated track,
-  `translateX(-50%)`) — no JS scroll loop, no controls, not pausable on
-  hover, matching the brief exactly. It slows down (rather than stopping) for
-  users with `prefers-reduced-motion`, since the reel is core content here,
-  not decoration.
-- **Active nav indicator** uses `IntersectionObserver` (`useActiveSection`)
-  and a `layoutId`-animated underline, rather than scroll-offset math.
-- All interactive elements have visible focus states and there are no nested
-  interactive elements (e.g. the project card's GitHub link stops
-  propagation rather than nesting a `<button>` inside an `<a>`).
+MIT — personal project, free to reference or fork.
+
+<div align="center">
+<sub>Built with care, one design token at a time.</sub>
+</div>

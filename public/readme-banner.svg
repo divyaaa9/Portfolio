@@ -1,0 +1,60 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#F5F5F2" stop-opacity="0.16" />
+      <stop offset="70%" stop-color="#F5F5F2" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F5F2" stop-opacity="0.05" />
+      <stop offset="30%" stop-color="#F5F5F2" stop-opacity="0" />
+      <stop offset="100%" stop-color="#F5F5F2" stop-opacity="0.03" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F5F5F2" stroke-opacity="0.045" stroke-width="1" />
+    </pattern>
+    <mask id="gridMask">
+      <rect width="1200" height="320" fill="url(#fadeMask)" />
+    </mask>
+    <radialGradient id="fadeMask" cx="50%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="#0B0D10" />
+  <rect width="1200" height="320" fill="url(#grid)" mask="url(#gridMask)" />
+  <rect width="1200" height="320" fill="url(#glow)" />
+  <rect width="1200" height="320" fill="url(#sheen)" />
+
+  <!-- eyebrow tag, matching the site's <Section /> label style -->
+  <text x="600" y="108" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', Menlo, monospace" font-size="20" letter-spacing="0.5">
+    <tspan fill="#80858F">&lt;</tspan><tspan fill="#B4B8BF">Portfolio</tspan><tspan fill="#80858F"> /&gt;</tspan>
+  </text>
+
+  <!-- name -->
+  <text x="600" y="188" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-1" fill="#F5F5F2">
+    Divya Sree
+  </text>
+
+  <!-- tagline -->
+  <text x="600" y="230" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="19" letter-spacing="0.3" fill="#B4B8BF">
+    Computer Science Undergraduate &#183; Developer &#183; Full-Stack &amp; AI
+  </text>
+
+  <!-- thin rule -->
+  <line x1="500" y1="258" x2="700" y2="258" stroke="#2A2F36" stroke-width="1" />
+
+  <!-- glowing asterisk accent, matching the hero eyebrow mark -->
+  <g transform="translate(600,272)" stroke="#F5F5F2" stroke-width="1.4" stroke-linecap="round" opacity="0.85">
+    <path d="M0 -9 L0 9 M-8 -5 L8 5 M8 -5 L-8 5" filter="url(#sparkGlow)" />
+  </g>
+  <defs>
+    <filter id="sparkGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="1.6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
